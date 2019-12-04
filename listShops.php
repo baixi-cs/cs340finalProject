@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <?php
 		$currentpage="List Shops";
 
@@ -22,52 +22,42 @@
 	}	
 
 // query to select all information from supplier table
+	$query = "SELECT * FROM `Shop` ";
+	
+// Get results from query
+	$result = mysqli_query($conn, $query);
+	if (!$result) {
+		die("Query to show fields from table failed");
+	}
+
+	if(mysqli_num_rows($result) > 0){
+        echo "<h1>Shops</h1>";  
+		echo"<h3>Click a shop to see their information</h3>";
+		echo "<table id='t01' border='1'>";
+        echo "<thead>";
+			echo "<tr>";
+			echo "<th>ShopID</th>";
+			echo "<th>Address</th>";
+			echo "<th>Phone</th>";
+			echo "<th>Hours</th>";
+			echo "<th>managerID</th>";
+			echo "</tr>";
+        echo "</thead>";
+        echo "<tbody>";
 		
-$query = "SELECT Shop.Address, Manager.Name,Manager.Email, Drink.Flavor
-			FROM `Manager`, `Drink`, `Shop`
-			WHERE Shop.managerID = Manager.managerID
-			AND Drink.shopID = Shop.ShopID";
-	// Get results from query
-		$result = mysqli_query($conn, $query);
-		if (!$result) {
-			die("Query to show fields from table failed");
-		}
-		// If there are parts in the database construct an HTML table
-		// to display the results
-		$row = mysqli_fetch_array($result);
-		if(mysqli_num_rows($result) > 0){
-	        echo "<h1>" . $row['Name']. "</h1>";
-			echo "<table id='t01' border='1'>";
-			// Create the table header
-	        echo "<thead>";
-				echo "<tr>";
-				echo "<th>Address</th>";
-				echo "<th>Name</th>";
-				echo "<th>Drink</th>";
-				echo "</tr>";
-	        echo "</thead>";
-	        echo "<tbody>";
-			// Extract rows from the results returned from the database
-			mysqli_data_seek($result, 0);
-	        while($row = mysqli_fetch_array($result)){
-						echo "<tr>";
-						echo "<td>" . $row['Address'] . "</td>";
-						echo "<td>" . $row['Name'] . "</td>";
-						echo "<td>" . $row['Drink'] . "</td>";
-						//echo "<td>" . $row['NumStars'] . "</td>";
-						echo "</tr>";
-	        }
-	        echo "</tbody>";
-	        echo "</table>";
-			// Free result set
-	        mysqli_free_result($result);
-		
-		
-		
-		
-		
-		
-		
+        while($row = mysqli_fetch_array($result)){
+            echo "<tr>";
+            echo "<td>" . $row['ShopID'] . "</td>";
+			echo "<td>" . $row['Address'] . "</td>";
+            echo "<td>" . $row['Phone'] . "</td>";
+            echo "<td>" . $row['Hours'] . "</td>";
+			echo "<td>" . $row['managerID'] . "</td>";
+            echo "</tr>";
+        }
+        echo "</tbody>";                            
+        echo "</table>";
+		// Free result set
+        mysqli_free_result($result);
     } else{
 		echo "<p class='lead'><em>No records were found.</em></p>";
     } 
@@ -76,5 +66,8 @@ $query = "SELECT Shop.Address, Manager.Name,Manager.Email, Drink.Flavor
 </body>
 
 </html>
+
+	
+
 
 	

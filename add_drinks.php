@@ -33,7 +33,7 @@
 
 	
 // See if sid is already in the table
-		$queryIn = "SELECT * FROM `a.Drink` where DrinkID='$DrinkID' ";
+		$queryIn = "SELECT * FROM `Drink` where DrinkID='$DrinkID' ";
 		$resultIn = mysqli_query($conn, $queryIn);
 		if (mysqli_num_rows($resultIn)> 0) {
 			$msg ="<h2>Can't Add to Table</h2> There is already a supplier with DrinkID $DrinkID<p>";

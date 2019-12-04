@@ -23,7 +23,7 @@
 
 // query to select all information from supplier table
 	
-	$query = "SELECT * FROM `a.Drink` ";
+	$query = "SELECT * FROM `Drink` ";
 
 // Get results from query
 	$result = mysqli_query($conn, $query);

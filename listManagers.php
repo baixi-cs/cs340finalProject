@@ -42,7 +42,6 @@
 			echo "<th>managerID</th>";
 			echo "<th>Name</th>";
 			echo "<th>Email</th>";
-			echo "<th>Password</th>";
 			echo "</tr>";
         echo "</thead>";
         echo "<tbody>";
@@ -55,7 +54,6 @@
             echo "<td>" . $row['managerID'] . "</td>";
 			echo "<td>" . $row['Name'] . "</td>";
             echo "<td>" . $row['Email'] . "</td>";
-			echo "<td>" . $row['Password'] . "</td>";
             echo "</tr>";
         }
         echo "</tbody>";                            

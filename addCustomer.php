@@ -1,13 +1,13 @@
 ﻿<!DOCTYPE html>
 <!-- Add Supplier Info to Table Supplier -->
 <?php
-		$currentpage="Add Drink";		
+		$currentpage="Add Customer";
 ?>
 <html>
 	<head>
-		<title>Add Drink</title>
+		<title>Add Customer</title>
 		<link rel="stylesheet" href="index.css">
-		<script type = "text/javascript"  src = "verifyInput.js" > </script> 
+		<script type = "text/javascript"  src = "verifyInput.js" > </script>
 	</head>
 <body>
 
@@ -16,8 +16,8 @@
 	$msg = "Add new drink record to the Drink Table";
 
 // change the value of $dbuser and $dbpass to your username and password
-	include 'connectvars.php'; 
-	
+	include 'connectvars.php';
+
 	$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 	if (!$conn) {
 		die('Could not connect: ' . mysql_error());
@@ -31,15 +31,15 @@
 		$Price = mysqli_real_escape_string($conn, $_POST['Price']);
 		$ShopID = mysqli_real_escape_string($conn, $_POST['ShopID']);
 
-	
+
 // See if sid is already in the table
 		$queryIn = "SELECT * FROM `a.Drink` where DrinkID='$DrinkID' ";
 		$resultIn = mysqli_query($conn, $queryIn);
 		if (mysqli_num_rows($resultIn)> 0) {
 			$msg ="<h2>Can't Add to Table</h2> There is already a supplier with DrinkID $DrinkID<p>";
 		} else {
-		
-		// attempt insert query 
+
+		// attempt insert query
 			$query = "INSERT INTO `a.Drink` (DrinkID, Flavor, Temperature, Price, ShopID) VALUES ('$DrinkID', '$Flavor', '$Temperature', '$Price', '$ShopID')";
 			if(mysqli_query($conn, $query)){
 				$msg =  "Record added successfully.<p>";
@@ -54,7 +54,7 @@ mysqli_close($conn);
 ?>
 
 	<h2> <?php echo $msg; ?> </h2>
-	
+
 	<form method="post" id="addForm">
 	<fieldset>
 		<legend>Drink Info:</legend>

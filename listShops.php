@@ -40,7 +40,7 @@
 			echo "<th>Address</th>";
 			echo "<th>Phone</th>";
 			echo "<th>Hours</th>";
-			echo "<th>managerID</th>";
+			//echo "<th>managerID</th>";
 			echo "</tr>";
         echo "</thead>";
         echo "<tbody>";
@@ -51,7 +51,7 @@
 			echo "<td>" . $row['Address'] . "</td>";
             echo "<td>" . $row['Phone'] . "</td>";
             echo "<td>" . $row['Hours'] . "</td>";
-			echo "<td>" . $row['managerID'] . "</td>";
+			//echo "<td>" . $row['managerID'] . "</td>";
             echo "</tr>";
         }
         echo "</tbody>";                            

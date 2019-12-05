@@ -23,7 +23,9 @@
 
 // query to select all information from supplier table
 	
-	$query = "SELECT * FROM `Manager` ";
+	$query = "SELECT Manager.managerID,Manager.Name, Manager.Email,Shop.ShopID
+	          FROM `Manager`,'Shop' 
+		  WHERE Shop.ShopID = Manager.ShopID ";
 
 // Get results from query
 	$result = mysqli_query($conn, $query);

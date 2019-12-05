@@ -47,7 +47,7 @@
 		// Query to insert the shop into the table 
 		//  ADD the query to insert a new shop into the Shops table
 		
-			$query = "INSERT INTO Manager (managerID, Name, Email) VALUES ('$managerID', '$Name', '$Email')";		
+			$query = "INSERT INTO Manager (managerID, Name, Email) VALUES ('$managerID', '$Name', '$Email','ShopID')";		
 			if(mysqli_query($conn, $query)){
 				$msg =  "Manager added successfully.<p>";
 			} else{

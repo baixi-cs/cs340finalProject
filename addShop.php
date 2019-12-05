@@ -30,7 +30,7 @@
 		$Address = mysqli_real_escape_string($conn, $_POST['Address']);
 		$Phone = mysqli_real_escape_string($conn, $_POST['Phone']);
 		$Hours = mysqli_real_escape_string($conn, $_POST['Hours']);
-		$managerID = mysqli_real_escape_string($conn, $_POST['managerID']);
+		//$managerID = mysqli_real_escape_string($conn, $_POST['managerID']);
 
 
 	// The POST values were entered from the form
@@ -46,7 +46,7 @@
 		// Query to insert the shop into the table 
 		//  ADD the query to insert a new shop into the Shops table
 		
-			$query = "INSERT INTO Shop (shopID, Address, Phone, Hours, managerID) VALUES ('$shopID', '$Address', '$Phone', '$Hours', '$managerID')";		
+			$query = "INSERT INTO Shop (shopID, Address, Phone, Hours, managerID) VALUES ('$shopID', '$Address', '$Phone', '$Hours')";		
 			if(mysqli_query($conn, $query)){
 				$msg =  "Shop added successfully.<p>";
 			} else{
@@ -80,10 +80,10 @@ mysqli_close($conn);
 			<label for="Hours">Hours:</label>
 			<input type="number" min=1 max = 30 class="required" name="Hours" id="Hours" title="Hours should be numeric">
 		</p>
-		<p>
+<!-- 		<p>
 			<label for="managerID">Manager ID:</label>
 			<input type="number" min=1 max = 99999 class="required" name="managerID" id="managerID" title="managerID should be numeric">
-		</p>
+		</p> -->
 	</fieldset>
 
     <p>

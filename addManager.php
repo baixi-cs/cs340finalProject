@@ -29,6 +29,7 @@
 		$managerID = mysqli_real_escape_string($conn, $_POST['managerID']);
 		$Name = mysqli_real_escape_string($conn, $_POST['Name']);
 		$Email = mysqli_real_escape_string($conn, $_POST['Email']);
+		$Email = mysqli_real_escape_string($conn, $_POST['ShopID']);
 		
 		
 
@@ -75,6 +76,10 @@ mysqli_close($conn);
 			<p>
 			<label for="Email">Email:</label>
 			<input type="text" class="required" name="Email" id="Email">
+		</p>
+		<p>
+			<label for="ShopID">Shop ID:</label>
+			<input type="number" min=1 max = 99999 class="required" name="ShopID" id="ShopID" title="ShopID should be numeric">
 		</p>
 		
 	</fieldset>
